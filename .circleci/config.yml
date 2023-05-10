@@ -25,7 +25,7 @@ jobs:
       - checkout 
       - restore_cache:
           keys:
-            - "npm_packages"
+            - "npm-packages"
       - run: npm audit
 
 workflows:
