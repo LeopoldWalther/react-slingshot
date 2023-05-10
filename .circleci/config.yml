@@ -19,7 +19,19 @@ jobs:
             - /src/node_modules
       - run: npm run lint
 
+  test:
+    <<: *defaults
+    steps: 
+      - checkout 
+      - restore_cache:
+          keys:
+            - "npm_packages"
+      - run: npm audit
+
 workflows:
   build_test_analyze: 
     jobs:
       - build
+      - test:
+          requires: 
+            - build
