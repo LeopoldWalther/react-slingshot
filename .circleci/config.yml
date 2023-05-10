@@ -26,7 +26,8 @@ jobs:
       - restore_cache:
           keys:
             - "npm-packages"
-      - run: npm audit
+      - run: npm i
+      - run: npm run test
 
 workflows:
   build_test_analyze: 
